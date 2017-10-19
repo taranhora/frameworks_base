@@ -26,6 +26,7 @@ import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.provider.Settings.Secure;
@@ -224,7 +225,7 @@ public class TunerServiceImpl extends TunerService {
         }
         if (!mListeningUris.containsKey(uri)) {
             mListeningUris.put(uri, key);
-            mContentResolver.registerContentObserver(uri, false, mObserver, mCurrentUser);
+            mContentResolver.registerContentObserver(uri, false, mObserver, UserHandle.USER_ALL);
         }
         // Send the first state.
         String value = getValue(key);
@@ -247,7 +248,8 @@ public class TunerServiceImpl extends TunerService {
         }
         mContentResolver.unregisterContentObserver(mObserver);
         for (Uri uri : mListeningUris.keySet()) {
-            mContentResolver.registerContentObserver(uri, false, mObserver, mCurrentUser);
+            String key = mListeningUris.get(uri);
+            mContentResolver.registerContentObserver(uri, false, mObserver, UserHandle.USER_ALL);
         }
     }
 
@@ -285,10 +287,7 @@ public class TunerServiceImpl extends TunerService {
         mContext.sendBroadcast(intent);
 
         for (String key : mTunableLookup.keySet()) {
-            if (ArrayUtils.contains(RESET_BLACKLIST, key)) {
-                continue;
-            }
-            Settings.Secure.putStringForUser(mContentResolver, key, null, user);
+            setValue(key, null);
         }
     }
 
@@ -299,6 +298,7 @@ public class TunerServiceImpl extends TunerService {
 
         @Override
         public void onChange(boolean selfChange, Uri uri, int userId) {
+            String key = mListeningUris.get(uri);
             if (userId == ActivityManager.getCurrentUser()) {
                 reloadSetting(uri);
             }
