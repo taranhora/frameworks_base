@@ -4566,6 +4566,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setLockscreenDoubleTapToSleep();
             setMaxKeyguardNotifConfig();
             setHideArrowForBackGesture();
+            setGamingMode();
         }
     }
 
@@ -4579,6 +4580,16 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (getNavigationBarView() != null) {
             getNavigationBarView().updateBackArrowForGesture();
         }
+    }
+
+    private void setGamingMode() {
+        mGamingModeActivated = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.GAMING_MODE_ACTIVE, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mHeadsUpDisabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.GAMING_MODE_HEADSUP_TOGGLE, 1,
+                UserHandle.USER_CURRENT) == 1;
+        mNotificationInterruptionStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
     }
 
     private void setPulseOnNewTracks() {

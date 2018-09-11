@@ -222,7 +222,7 @@ import com.android.internal.util.bootleggers.BootlegUtils;
 import com.android.server.ExtconStateObserver;
 import com.android.server.ExtconUEventObserver;
 import com.android.internal.util.bootleggers.BootlegUtils;
-import com.android.internal.util.havoc.Utils;
+import com.android.internal.util.bootleggers.Utils;
 import com.android.internal.util.hwkeys.ActionHandler;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.ScreenshotHelper;
