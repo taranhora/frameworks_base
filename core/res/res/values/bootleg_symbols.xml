@@ -219,4 +219,6 @@
     <!-- Component name of popup camera service -->
     <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
 
+    <java-symbol type="integer" name="config_screenBrightnessPulse" />
+
 </resources>
