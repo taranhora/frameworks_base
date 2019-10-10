@@ -4664,13 +4664,6 @@ public final class Settings {
          */
         public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
 
-        /** Whether to show ambient or lockscreen if AoD is disabled
-         * and we do a wake gesture like lift to wake or double tap
-         *
-         * @hide
-         */
-        public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
-
         /** Whether to pulse ambient on new music tracks
          *
          * @hide
@@ -5736,6 +5729,12 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_CHARGING_ANIMATION = "lockscreen_charging_animation";
+
+        /**
+         * Use doubletap as doze pulse triggers
+         * @hide
+         */
+        public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
