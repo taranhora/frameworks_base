@@ -89,4 +89,8 @@
     <!-- Screen recorder -->
     <dimen name="screenrecord_dot_size">48dp</dimen>
 
+    <!-- Height of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_height">12.5dp</dimen>
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">12.5dp</dimen>
 </resources>
