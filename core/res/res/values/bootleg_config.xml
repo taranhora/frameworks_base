@@ -126,4 +126,8 @@
 
     <!-- Class name of screen off fod handler -->
     <string name="config_fodScreenOffHandlerClass" translatable="false"></string>
+
+    <!-- Defines the sysfs attribute path used by pocket bridge
+        to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>   
 </resources>
