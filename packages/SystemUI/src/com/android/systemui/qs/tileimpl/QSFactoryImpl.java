@@ -51,8 +51,8 @@ import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WeatherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.util.leak.GarbageMonitor;
-
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.inject.Singleton;
@@ -84,6 +84,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
     private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<AODTile> mAODTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
 
     private QSTileHost mHost;
 
@@ -109,7 +110,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
-            Provider<AODTile> aodTileProvider) {
+            Provider<AODTile> aodTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -132,6 +134,7 @@ public class QSFactoryImpl implements QSFactory {
         mSmartPixelsTileProvider = smartPixelsTileProvider;
         mGamingModeTileProvider = gamingModeTileProvider;
         mAODTileProvider = aodTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -197,6 +200,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mGamingModeTileProvider.get();
             case "aod":
                 return mAODTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
         }
 
         // Intent tiles.
