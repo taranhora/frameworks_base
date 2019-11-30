@@ -4956,7 +4956,16 @@ public final class Settings {
          * Whether to show VoLTE icon or not
          * @hide
          */
-        public static final String SHOW_VOLTE_ICON = "volte_icon";
+        public static final String SHOW_VOLTE_ICON = "show_volte_icon";
+
+        /**
+         * Whether to show VoLTE icon or not
+         * @hide
+         */
+        public static final String VOLTE_ICON_STYLE = "volte_icon_style";
+
+        /** @hide */
+        public static final Validator VOLTE_ICON_STYLE_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
 	/**
          * Whether the battery light should be enabled (if hardware supports it)
@@ -6024,6 +6033,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_REPEAT_MODE_RIGHT);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_LAYOUT);
+            PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
         }
 
         /**
@@ -6200,6 +6210,7 @@ public final class Settings {
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_REPEAT_MODE_RIGHT, PULSE_AMBIENT_LIGHT_REPEAT_MODE_RIGHT_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT, PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_LAYOUT, PULSE_AMBIENT_LIGHT_LAYOUT_VALIDATOR);
+            VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
         }
 
         /**
