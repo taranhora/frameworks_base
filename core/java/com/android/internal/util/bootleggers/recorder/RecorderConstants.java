@@ -16,5 +16,5 @@
 package com.android.internal.util.bootleggers.recorder;
 
 public class RecorderConstants {
-    public static final String APP_PACKAGE_NAME = "org.lineageos.recorder";
+    public static final String APP_PACKAGE_NAME = "com.oneplus.screenrecord";
 }
