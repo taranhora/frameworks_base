@@ -481,7 +481,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         }
 
         if (mIsDreaming) {
-            mParams.x += mDreamingOffsetX;
+            //mParams.x += mDreamingOffsetX;
             mParams.y += mDreamingOffsetY;
         }
 
