@@ -5242,6 +5242,24 @@ public final class Settings {
         private static final Validator PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to use accent color for left pulse
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT_ACCENT_LEFT = "ambient_notification_light_accent_left";
+
+        /** @hide */
+        private static final Validator AMBIENT_NOTIFICATION_LIGHT_ACCENT_LEFT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to use accent color for right pulse
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT_ACCENT_RIGHT = "ambient_notification_light_accent_right";
+
+        /** @hide */
+        private static final Validator AMBIENT_NOTIFICATION_LIGHT_ACCENT_RIGHT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Manual override picture to use
          * @hide
          */
@@ -5724,6 +5742,8 @@ public final class Settings {
             AMBIENT_NOTIFICATION_LIGHT_ENABLED,
             AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD,
             PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL,
+            AMBIENT_NOTIFICATION_LIGHT_ACCENT_LEFT,
+            AMBIENT_NOTIFICATION_LIGHT_ACCENT_RIGHT,
         };
 
         /**
@@ -5943,6 +5963,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_RIGHT_DURATION);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_ENABLED);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL);
+            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_ACCENT_LEFT);
+            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_ACCENT_RIGHT);
         }
 
         /**
@@ -6113,6 +6135,8 @@ public final class Settings {
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_ENABLED, AMBIENT_NOTIFICATION_LIGHT_ENABLED_VALIDATOR);
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD, AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL, PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_VALIDATOR);
+            VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_ACCENT_LEFT, AMBIENT_NOTIFICATION_LIGHT_ACCENT_LEFT_VALIDATOR);
+            VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_ACCENT_RIGHT, AMBIENT_NOTIFICATION_LIGHT_ACCENT_RIGHT_VALIDATOR);
         }
 
         /**
