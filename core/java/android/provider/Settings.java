@@ -5287,6 +5287,15 @@ public final class Settings {
         private static final Validator PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Ambient Edge Light Layout
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_LAYOUT = "pulse_ambient_light_layout";
+
+        /** @hide */
+        private static final Validator PULSE_AMBIENT_LIGHT_LAYOUT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Manual override picture to use
          * @hide
          */
@@ -5774,6 +5783,7 @@ public final class Settings {
             PULSE_AMBIENT_LIGHT_REPEAT_MODE_LEFT,
             PULSE_AMBIENT_LIGHT_REPEAT_MODE_RIGHT,
             PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT,
+            PULSE_AMBIENT_LIGHT_LAYOUT,
         };
 
         /**
@@ -5998,6 +6008,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_REPEAT_MODE_LEFT);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_REPEAT_MODE_RIGHT);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT);
+            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_LAYOUT);
         }
 
         /**
@@ -6173,6 +6184,7 @@ public final class Settings {
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_REPEAT_MODE_LEFT, PULSE_AMBIENT_LIGHT_REPEAT_MODE_LEFT_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_REPEAT_MODE_RIGHT, PULSE_AMBIENT_LIGHT_REPEAT_MODE_RIGHT_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT, PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_REPEAT_VALIDATOR);
+            VALIDATORS.put(PULSE_AMBIENT_LIGHT_LAYOUT, PULSE_AMBIENT_LIGHT_LAYOUT_VALIDATOR);
         }
 
         /**
