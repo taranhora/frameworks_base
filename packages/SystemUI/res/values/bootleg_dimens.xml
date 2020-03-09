@@ -76,7 +76,7 @@
     <dimen name="tri_state_up_top_right_radius">63.0px</dimen>
 
     <!-- Recognizing fingerprint animation -->
-    <dimen name="fod_animation_size">280dp</dimen>
+    <dimen name="fod_animation_size">300dp</dimen>
     <dimen name="fod_animation_offset">0dp</dimen>
 
     <!-- The width/height of the charging indicator view on keyguard. -->
