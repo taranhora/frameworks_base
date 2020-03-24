@@ -18,6 +18,7 @@ package com.android.systemui.biometrics;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.util.Slog;
 import android.view.View;
 
 import com.android.systemui.SystemUI;
