@@ -196,6 +196,14 @@ import java.util.TimerTask;
                 hide();
             }
         }
+
+        @Override
+        public void onBiometricHelp(int msgId, String helpString,
+                BiometricSourceType biometricSourceType) {
+            if (msgId == -1){ // Auth error
+                mHandler.post(() -> mFODAnimation.hideFODanimation());
+            }
+        }
     };
 
     private boolean canUnlockWithFp() {
