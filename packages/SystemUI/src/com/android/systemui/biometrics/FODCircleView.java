@@ -33,6 +33,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.hardware.fingerprint.FingerprintManager;
 import android.graphics.PorterDuff;
 import android.hardware.biometrics.BiometricSourceType;
 import android.os.Handler;
@@ -151,6 +152,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable, Co
         }
     };
 
+    private FingerprintManager mFingerprintManager;
     private KeyguardUpdateMonitor mUpdateMonitor;
 
     private KeyguardUpdateMonitorCallback mMonitorCallback = new KeyguardUpdateMonitorCallback() {
@@ -231,6 +233,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable, Co
     };
 
     private void dispatchFodScreenStateChanged(boolean interactive){
+        dispatchFodFingerprintHasEnrolledFinger();
         if (mFodScreenOffHandler != null){
             mFodScreenOffHandler.onScreenStateChanged(interactive);
         }
@@ -245,6 +248,15 @@ public class FODCircleView extends ImageView implements TunerService.Tunable, Co
     private void dispatchFodDreamingStateChanged(){
         if (mFodScreenOffHandler != null){
             mFodScreenOffHandler.onDreamingStateChanged(mIsDreaming);
+        }
+    }
+
+    private void dispatchFodFingerprintHasEnrolledFinger(){
+        if (mFodScreenOffHandler != null &&
+                mFingerprintManager != null && 
+                mFingerprintManager.isHardwareDetected()) {
+            boolean enrolled = mFingerprintManager.hasEnrolledFingerprints(UserHandle.myUserId());
+            mFodScreenOffHandler.hasEnrolledFingerprints(enrolled);
         }
     }
 
@@ -274,6 +286,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable, Co
     public FODCircleView(Context context, FodScreenOffHandler fodScreenOffHandler) {
         super(context);
 
+        mFingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
         mFodScreenOffHandler = fodScreenOffHandler;
 
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
