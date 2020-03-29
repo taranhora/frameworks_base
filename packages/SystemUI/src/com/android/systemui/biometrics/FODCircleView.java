@@ -186,7 +186,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable, Co
 
             if (isBouncer) {
                 hide();
-            } else if (mUpdateMonitor.isFingerprintDetectionRunning()) {
+            } else if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
         }
