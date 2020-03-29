@@ -179,7 +179,7 @@ import java.util.TimerTask;
 
             if (isBouncer) {
                 hide();
-            } else if (mUpdateMonitor.isFingerprintDetectionRunning()) {
+            } else if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
         }
