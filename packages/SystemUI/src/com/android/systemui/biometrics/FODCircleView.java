@@ -125,6 +125,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable, Co
         R.drawable.fod_icon_shooky,
         R.drawable.fod_icon_spiral_blue,
         R.drawable.fod_icon_sun_metro,
+        R.drawable.fod_icon_bootleg,
+        R.drawable.fod_icon_bootleg_stay_home,
+        R.drawable.fod_icon_corona_stay_home,
+        R.drawable.fod_icon_insta,
+        R.drawable.fod_icon_insta_stay_home,
     };
 
     private int mPressedIcon;
